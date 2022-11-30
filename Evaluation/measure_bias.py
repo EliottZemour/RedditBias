@@ -5,13 +5,13 @@ import pandas as pd
 import numpy as np
 from scipy import stats
 from utils import helper_functions as helpers
-from transformers import AutoModelWithLMHead, AutoTokenizer, AutoModelForMaskedLM, AutoModelForCausalLM, AutoModelWithLMAndDebiasHead
+from transformers import AutoModelWithLMHead, AutoTokenizer, AutoModelForMaskedLM, AutoModelForCausalLM#, AutoModelWithLMAndDebiasHead
 import time
 import seaborn as sns
 import matplotlib.pyplot as plt
 import logging
 import numpy as np
-from outliers import smirnov_grubbs as grubbs
+# from outliers import smirnov_grubbs as grubbs
 
 
 def get_perplexity_list(df, m, t):
@@ -119,8 +119,8 @@ def find_anomalies(data):
 
 start = time.time()
 
-data_path = '/Users/soumya/Documents/Mannheim-Data-Science/Sem_4/MasterThesis/Data/'
-exp_path = '/Users/soumya/Documents/Mannheim-Data-Science/Sem_4/MasterThesis/Experiments/execution_logs/'
+data_path = '/Users/eliott/Desktop/RedditBias/data/'
+exp_path = '/Users/eliott/Desktop/RedditBias/'
 
 ON_SET = True
 GET_PERPLEXITY = True
@@ -135,7 +135,7 @@ input_file_suffix = '_biased_test_reduced' #'_processed_phrase_biased_testset_re
 output_file_suffix = '_perplex_phrase_biased' # '_perplex'
 
 debiasing_head = 'EqualisingLoss' # 'CosineDist'
-pretrained_model = 'microsoft/DialoGPT-small' # 'bert_base_uncased' # 'gpt2'
+pretrained_model = 'gpt2' #'microsoft/DialoGPT-small' # 'bert_base_uncased' # 'gpt2'
     # '/Users/soumya/Documents/Mannheim-Data-Science/Sem_4/MasterThesis/models/religion1/eq_loss_0/'
     # 'microsoft/DialoGPT-small'
     # '/Users/soumya/Documents/Mannheim-Data-Science/Sem_4/MasterThesis/models/religion2/lm_loss_swapped_targets/'
@@ -208,12 +208,12 @@ print(demo1_out, demo2_out)
 demo1_in = [d1 for d1 in race_1_perplexity if d1 not in demo1_out]
 demo2_in = [d2 for d2 in race_2_perplexity if d2 not in demo2_out]
 
-for i, (p1, p2) in enumerate(zip(race_1_perplexity, race_2_perplexity)):
-    if p1 in demo1_out or p2 in demo2_out:
-        print('Outlier in demo1 is {}'.format(race_df.loc[race_df['perplexity'] == p1]))
-        print('Outlier in demo2 is {}'.format(race_df_2.loc[race_df_2['perplexity'] == p2]))
-        race_df.drop(race_df.loc[race_df['perplexity'] == p1].index, inplace=True)
-        race_df_2.drop(race_df_2.loc[race_df_2['perplexity'] == p2].index, inplace=True)
+# for i, (p1, p2) in enumerate(zip(race_1_perplexity, race_2_perplexity)):
+#     if p1 in demo1_out or p2 in demo2_out:
+#         print('Outlier in demo1 is {}'.format(race_df.loc[race_df['perplexity'] == p1]))
+#         print('Outlier in demo2 is {}'.format(race_df_2.loc[race_df_2['perplexity'] == p2]))
+#         race_df.drop(race_df.loc[race_df['perplexity'] == p1].index, inplace=True)
+#         race_df_2.drop(race_df_2.loc[race_df_2['perplexity'] == p2].index, inplace=True)
 
 if REDUCE_SET:
     print('DF shape after reducing {}'.format(race_df.shape))

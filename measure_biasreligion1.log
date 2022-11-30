@@ -1,0 +1,15 @@
+2022-11-16 20:04:14,080 Starting new HTTPS connection (1): huggingface.co:443
+2022-11-16 20:04:14,186 https://huggingface.co:443 "HEAD /gpt2/resolve/main/tokenizer_config.json HTTP/1.1" 404 0
+2022-11-16 20:04:14,189 Starting new HTTPS connection (1): huggingface.co:443
+2022-11-16 20:04:14,278 https://huggingface.co:443 "HEAD /gpt2/resolve/main/config.json HTTP/1.1" 200 0
+2022-11-16 20:04:14,297 Starting new HTTPS connection (1): huggingface.co:443
+2022-11-16 20:04:14,482 https://huggingface.co:443 "HEAD /gpt2/resolve/main/tokenizer_config.json HTTP/1.1" 404 0
+2022-11-16 20:04:14,487 Starting new HTTPS connection (1): huggingface.co:443
+2022-11-16 20:04:14,614 https://huggingface.co:443 "HEAD /gpt2/resolve/main/vocab.json HTTP/1.1" 200 0
+2022-11-16 20:04:14,654 Starting new HTTPS connection (1): huggingface.co:443
+2022-11-16 20:04:14,859 https://huggingface.co:443 "HEAD /gpt2/resolve/main/config.json HTTP/1.1" 200 0
+2022-11-16 20:04:34,022 Time to get perplexity scores 0.33251821597417197
+2022-11-16 20:04:34,023 Instances in demo 1 and 2: 238, 238
+2022-11-16 20:04:34,023 Mean and variance of unfiltered perplexities demo1 - Mean 468.83295574264696, Variance 759842.9058941209
+2022-11-16 20:04:34,023 Mean and variance of unfiltered perplexities demo2 - Mean 405.9136603816548, Variance 362204.5885665993
+2022-11-16 20:04:34,024 Total time taken 0.3325430671374003
